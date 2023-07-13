@@ -1,7 +1,7 @@
 require 'nvim-treesitter.configs'.setup {
 	-- A list of parser names, or "all" (the five listed parsers should always be installed)
 	ensure_installed = {
-		"help",
+		-- "help",
 		"javascript",
 		"json",
 		"typescript",
@@ -10,9 +10,8 @@ require 'nvim-treesitter.configs'.setup {
 		"c_sharp",
 		"lua",
 		"vim",
-		"help",
 		"html",
-		"just",
+		-- "just",
 		"query",
 		"markdown",
 		"markdown_inline"

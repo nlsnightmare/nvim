@@ -1,37 +1,14 @@
 -- https://github.com/mhartington/formatter.nvim
-local util = require("formatter.util")
 
 require("formatter").setup({
 	logging = false,
 	log_level = vim.log.levels.WARN,
 	filetype = {
-		lua = {
-			require("formatter.filetypes.lua").stylua,
-			function()
-				return {
-					exe = "stylua",
-					args = {
-						"--search-parent-directories",
-						"--stdin-filepath",
-						util.escape_path(util.get_current_buffer_file_path()),
-						"--",
-						"-",
-					},
-					stdin = true,
-				}
-			end,
-		},
+		lua = { require("formatter.filetypes.lua").stylua },
+		typescript = { require("formatter.filetypes.typescript").prettier },
 
 		json = {
 			require("formatter.filetypes.json").fixjson,
-			function()
-				return {
-					exe = "fixjson",
-					args = { "--stdin-filename", util.get_current_buffer_file_name() },
-					stdin = true,
-					try_node_modules = true,
-				}
-			end,
 		},
 
 		cs = {

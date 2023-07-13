@@ -9,4 +9,4 @@ function SetColorScheme(color)
 	vim.cmd('colorscheme ' .. color)
 end
 
-SetColorScheme("catppuccin-macchiato")
+SetColorScheme("catppuccin-latte")

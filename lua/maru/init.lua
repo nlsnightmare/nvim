@@ -1,14 +1,25 @@
 require("maru.keys")
 require("maru.packer")
 
+-- make sure we can detect if we're running in wsl or plain linux
+local isWsl = false
+local io = require("io")
+local file = io.open("/etc/wsl.conf")
+if file ~= nil then
+	io.close(file)
+	isWsl = true
+end
+
 local tab_size = 4
+
+vim.opt.guicursor = ""
 
 vim.opt.guicursor = ""
 vim.opt.ignorecase = true
 
 -- no idea why this doesn't work
 -- vim.opt.autoindent = true
-vim.cmd("set autoindent")
+vim.cmd([[set autoindent]])
 
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -35,8 +46,24 @@ vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 
-vim.opt.clipboard = { "unnamed", "unnamedplus" }
-vim.cmd [[autocmd FileType php setlocal commentstring=//\ %s]]
-vim.cmd [[autocmd FileType json set equalprg=jq]]
+if isWsl then
+	vim.g.clipboard = {
+		name = "WslClipboard",
+		copy = {
+			["+"] = "/mnt/c/ProgramData/chocolatey/lib/win32yank/tools/win32yank.exe -i -clrf",
+			["*"] = "/mnt/c/ProgramData/chocolatey/lib/win32yank/tools/win32yank.exe -i -clrf",
+		},
+		paste = {
+			["+"] = "/mnt/c/ProgramData/chocolatey/lib/win32yank/tools/win32yank.exe -o -clrf",
+			["*"] = "/mnt/c/ProgramData/chocolatey/lib/win32yank/tools/win32yank.exe -o -clrf",
+		},
+		cache_enabled = 0,
+	}
+else
+	vim.opt.clipboard = { "unnamed", "unnamedplus" }
+end
 
-vim.api.nvim_create_user_command('Symbols', 'Telescope symbols', {})
+vim.cmd([[autocmd FileType php setlocal commentstring=//\ %s]])
+vim.cmd([[autocmd FileType json set equalprg=jq]])
+
+-- vim.api.nvim_create_user_command('Symbols', 'Telescope symbols', {})

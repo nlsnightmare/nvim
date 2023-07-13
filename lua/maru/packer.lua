@@ -1,13 +1,17 @@
-vim.cmd([[packadd packer.nvim]])
+local ensure_packer = function()
+	local fn = vim.fn
+	local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+	if fn.empty(fn.glob(install_path)) > 0 then
+		fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
+		vim.cmd([[packadd packer.nvim]])
+		return true
+	end
+	return false
+end
+
+local packer_bootstrap = ensure_packer()
 
 return require("packer").startup(function(use)
-	vim.keymap.set("n", "<leader>pi", function()
-		local home = os.getenv("HOME") .. "/.config/nvim/lua/maru/packer.lua"
-		vim.cmd("source " .. home)
-		vim.cmd("PackerSync")
-	end)
-
-	-- packer can manage itself
 	use({ "wbthomason/packer.nvim" })
 
 	use({
@@ -56,11 +60,6 @@ return require("packer").startup(function(use)
 	-- file explorer
 	use({ "nvim-tree/nvim-tree.lua" })
 
-	-- project management
-	-- use { "ahmedkhalf/project.nvim", config = function()
-	-- 	require("project_nvim").setup {}
-	-- end }
-
 	-- Make Editing Easier
 	use({ "easymotion/vim-easymotion" })
 	use({ "tpope/vim-surround" })
@@ -70,6 +69,8 @@ return require("packer").startup(function(use)
 	-- use { 'utilyre/sentiment.nvim', config = function()
 	-- 	require("sentiment").setup {}
 	-- end }
+
+	use("tpope/vim-fugitive")
 
 	use({ "mhartington/formatter.nvim" })
 
@@ -83,7 +84,6 @@ return require("packer").startup(function(use)
 
 	-- mkdir when missing
 	use({ "jghauser/mkdir.nvim" })
-
 
 	-- Go easy on the eyes
 	use({ "folke/zen-mode.nvim", as = "zen-mode" })
@@ -110,7 +110,16 @@ return require("packer").startup(function(use)
 			{ "rafamadriz/friendly-snippets" }, -- Optional
 		},
 	})
-
+	use({
+		"dgagn/diagflow.nvim",
+		config = function()
+			require("diagflow").setup()
+		end,
+	})
 	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
 	use({ "theHamsta/nvim-dap-virtual-text" })
+
+	if packer_bootstrap then
+		require("packer").sync()
+	end
 end)
