@@ -22,6 +22,20 @@ return require("packer").startup(function(use)
 	use({ "nvim-telescope/telescope-ui-select.nvim" })
 	use({ "nvim-telescope/telescope-symbols.nvim" })
 
+	use({
+		"stevearc/dressing.nvim",
+		config = function()
+			require("dressing").setup({
+				input = {
+					enabled = true,
+					default_prompt = "> ",
+					start_in_insert = false,
+				},
+				select = { enabled = false },
+			})
+		end,
+	})
+
 	use({ "mhinz/vim-startify" })
 
 	-- Themes
@@ -96,6 +110,8 @@ return require("packer").startup(function(use)
 			{ "neovim/nvim-lspconfig" }, -- Required
 			{ "williamboman/mason.nvim" }, -- Optional
 			{ "williamboman/mason-lspconfig.nvim" }, -- Optional
+
+			{ "Hoffs/omnisharp-extended-lsp.nvim" }, -- Optional
 
 			-- Autocompletion
 			{ "hrsh7th/nvim-cmp" }, -- Required
