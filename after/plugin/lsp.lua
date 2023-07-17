@@ -77,6 +77,13 @@ lsp.setup_nvim_cmp({
 })
 
 lsp.on_attach(function(client, bufnr)
+	--- Guard against servers without the signatureHelper capability
+	if client.server_capabilities.signatureHelpProvider then
+		require("lsp-overloads").setup(client, {})
+
+		vim.api.nvim_set_keymap("i", "<C-h>", "<cmd>LspOverloadsSignature<CR>", { noremap = true, silent = false })
+	end
+
 	-- @see https://github.com/OmniSharp/omnisharp-roslyn/issues/2483#issuecomment-1546721190
 	if client.name == "omnisharp" then
 		local function toSnakeCase(str)
