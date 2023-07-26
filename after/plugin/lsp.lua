@@ -100,12 +100,6 @@ lsp.on_attach(function(client, bufnr)
 		end
 	end
 
-	local is_angular = util.root_pattern("angular.json")(vim.fn.getcwd())
-	if is_angular and client.name == "tsserver" then
-		client.stop()
-		return
-	end
-
 	-- make these options only work on buffers with active lsp
 	local opts = { buffer = bufnr, remap = false }
 
@@ -119,8 +113,8 @@ lsp.on_attach(function(client, bufnr)
 
 		return telescope.lsp_definitions()
 	end, opts)
-	vim.keymap.set("n", "gr", telescope.lsp_references)
 
+	vim.keymap.set("n", "gr", telescope.lsp_references)
 	-- stylua: ignore start
 	vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
 	vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
