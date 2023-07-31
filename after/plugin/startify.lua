@@ -15,9 +15,9 @@ vim.g.startify_lists = {
 	{ type = 'files',     header = { '   MRU' } },
 	{ type = 'sessions',  header = { '   Sessions' } },
 }
--- vim.g.startify_session_persistence = 1
--- vim.g.startify_change_to_dir = 0
--- vim.g.startify_change_to_vcs_root = 1
+vim.g.startify_session_persistence = 1
+vim.g.startify_change_to_dir = 0
+vim.g.startify_change_to_vcs_root = 1
 
 
 -- Start ZenMode when Startify is ready

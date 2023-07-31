@@ -9,6 +9,12 @@ local ensure_packer = function()
 	return false
 end
 
+vim.cmd([[
+augroup packer_user_config
+  autocmd!
+  autocmd BufWritePost packer.lua source <afile> | PackerCompile
+augroup end]])
+
 local packer_bootstrap = ensure_packer()
 
 return require("packer").startup(function(use)
@@ -44,6 +50,10 @@ return require("packer").startup(function(use)
 	use({ "Shatur/neovim-ayu", as = "ayu" })
 	use({ "folke/tokyonight.nvim", as = "tokyonight" })
 
+	use({ "rebelot/kanagawa.nvim", as = "kanagawa" })
+	use({ "embark-theme/vim", as = "embark" })
+	use("EdenEast/nightfox.nvim")
+
 	-- Symbol bar
 	use({
 		"utilyre/barbecue.nvim",
@@ -77,6 +87,7 @@ return require("packer").startup(function(use)
 	-- Make Editing Easier
 	use({ "easymotion/vim-easymotion" })
 	use({ "tpope/vim-surround" })
+	use("jiangmiao/auto-pairs")
 	use({ "tpope/vim-commentary" })
 	use({ "junegunn/vim-easy-align" })
 
@@ -119,7 +130,7 @@ return require("packer").startup(function(use)
 			{ "hrsh7th/cmp-buffer" }, -- Optional
 			{ "hrsh7th/cmp-path" }, -- Optional
 			{ "saadparwaiz1/cmp_luasnip" }, -- Optional
-			{ 'Issafalcon/lsp-overloads.nvim'},
+			{ "Issafalcon/lsp-overloads.nvim" },
 
 			{ "hrsh7th/cmp-nvim-lua" }, -- Optional
 
