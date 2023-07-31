@@ -10,6 +10,14 @@ vim.keymap.set("i", "jj", "<ESC>")
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
+-- vim.keymap.set('i', '(;', '(<CR>);<C-c>O')
+-- vim.keymap.set('i', '(,', '(<CR>),<C-c>O')
+-- vim.keymap.set('i', '{;', '{<CR>};<C-c>O')
+-- vim.keymap.set('i', '{,', '{<CR>},<C-c>O')
+-- vim.keymap.set('i', '[;', '[<CR>];<C-c>O')
+-- vim.keymap.set('i', '[,', '[<CR>],<C-c>O')
+
+
 -- keep cursor position when joining lines
 vim.keymap.set("n", "J", "mzJ`z")
 
@@ -34,6 +42,7 @@ vim.keymap.set("v", "ga", "<PLUG>(EasyAlign)")
 vim.keymap.set("x", "ga", "<PLUG>(EasyAlign)")
 
 vim.keymap.set("n", "<leader>q", ":bd<CR>")
+vim.keymap.set("n", "<leader>Q", ":%bd<CR>")
 
 vim.keymap.set("n", "<leader>pi", function()
 	local home = os.getenv("HOME") .. "/.config/nvim/lua/maru/packer.lua"
@@ -41,6 +50,4 @@ vim.keymap.set("n", "<leader>pi", function()
 	vim.cmd("PackerSync")
 end)
 
-vim.keymap.set("n", "<leader><leader>", function()
-	vim.cmd("so")
-end)
+vim.keymap.set("n", "<leader><leader>", ":so<cr>")
