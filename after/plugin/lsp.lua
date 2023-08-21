@@ -68,8 +68,8 @@ lsp.setup_nvim_cmp({
 	mapping = cmp_mappings,
 	-- make snippets have higher priority
 	sources = cmp.config.sources({
-		{ name = "luasnip" },
 		{ name = "nvim_lsp" },
+		{ name = "luasnip" },
 	}, {
 		{ name = "path" },
 		{ name = "buffer" },
