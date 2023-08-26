@@ -7,21 +7,11 @@ local settings = {
 	scss = { require("formatter.filetypes.css").prettier },
 	sh = { require("formatter.filetypes.sh").shfmt },
 	markdown = { require("formatter.filetypes.markdown").prettier },
-	html = { require("formatter.filetypes.html").htmlbeautify },
+	html = { require("formatter.filetypes.html").prettier },
 	xml = { require("formatter.filetypes.html").htmlbeautify },
+	sql = { require("formatter.filetypes.sql").pgformat },
+	cs = {
 
-	cs = {
-		function()
-			return {
-				exe = "dotnet",
-				args = {
-					"csharpier",
-				},
-				stdin = true,
-			}
-		end,
-	},
-	cs = {
 		function()
 			return {
 				exe = "dotnet",

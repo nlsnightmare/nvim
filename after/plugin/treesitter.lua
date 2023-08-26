@@ -11,6 +11,7 @@ require 'nvim-treesitter.configs'.setup {
 		"lua",
 		"vim",
 		"html",
+		"sql",
 		-- "just",
 		"query",
 		"markdown",
