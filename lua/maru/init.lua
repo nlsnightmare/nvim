@@ -50,12 +50,12 @@ if isWsl then
 	vim.g.clipboard = {
 		name = "WslClipboard",
 		copy = {
-			["+"] = "/mnt/c/ProgramData/chocolatey/lib/win32yank/tools/win32yank.exe -i -clrf",
-			["*"] = "/mnt/c/ProgramData/chocolatey/lib/win32yank/tools/win32yank.exe -i -clrf",
+			["+"] = "/mnt/c/ProgramData/chocolatey/lib/win32yank/tools/win32yank.exe -i --crlf",
+			["*"] = "/mnt/c/ProgramData/chocolatey/lib/win32yank/tools/win32yank.exe -i --crlf",
 		},
 		paste = {
-			["+"] = "/mnt/c/ProgramData/chocolatey/lib/win32yank/tools/win32yank.exe -o -clrf",
-			["*"] = "/mnt/c/ProgramData/chocolatey/lib/win32yank/tools/win32yank.exe -o -clrf",
+			["+"] = "/mnt/c/ProgramData/chocolatey/lib/win32yank/tools/win32yank.exe -o --lf",
+			["*"] = "/mnt/c/ProgramData/chocolatey/lib/win32yank/tools/win32yank.exe -o --lf",
 		},
 		cache_enabled = 0,
 	}
