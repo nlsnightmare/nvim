@@ -73,7 +73,7 @@ return require("packer").startup(function(use)
 		requires = { "nvim-tree/nvim-web-devicons", opt = true },
 	})
 
-	use({ "nvim-treesitter/nvim-treesitter", as ="treesitter", { run = ":TSUpdate" } })
+	use({ "nvim-treesitter/nvim-treesitter", as = "treesitter", { run = ":TSUpdate" } })
 	use({ "nvim-treesitter/playground" })
 	use({ "IndianBoy42/tree-sitter-just" })
 
@@ -90,6 +90,14 @@ return require("packer").startup(function(use)
 	use("jiangmiao/auto-pairs")
 	use({ "tpope/vim-commentary" })
 	use({ "junegunn/vim-easy-align" })
+
+	-- lua with packer.nvim
+	use({
+		"max397574/better-escape.nvim",
+		config = function()
+			require("better_escape").setup()
+		end,
+	})
 
 	-- use { 'utilyre/sentiment.nvim', config = function()
 	-- 	require("sentiment").setup {}
