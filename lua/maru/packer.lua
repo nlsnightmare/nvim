@@ -91,6 +91,14 @@ return require("packer").startup(function(use)
 	use({ "tpope/vim-commentary" })
 	use({ "junegunn/vim-easy-align" })
 
+	-- lua with packer.nvim
+	use({
+		"max397574/better-escape.nvim",
+		config = function()
+			require("better_escape").setup()
+		end,
+	})
+
 	-- use { 'utilyre/sentiment.nvim', config = function()
 	-- 	require("sentiment").setup {}
 	-- end }

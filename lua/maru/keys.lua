@@ -2,10 +2,6 @@ vim.g.mapleader = " "
 
 vim.keymap.set("n", "Q", "<nop>")
 
--- easily escape insert mode
-vim.keymap.set("i", "kj", "<ESC>")
-vim.keymap.set("i", "jj", "<ESC>")
-
 -- move lines around in visual mode
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
