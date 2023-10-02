@@ -73,9 +73,9 @@ return require("packer").startup(function(use)
 		requires = { "nvim-tree/nvim-web-devicons", opt = true },
 	})
 
-	use({ "nvim-treesitter/nvim-treesitter", as ="treesitter", { run = ":TSUpdate" } })
-	use({ "nvim-treesitter/playground" })
-	use({ "IndianBoy42/tree-sitter-just" })
+	use({ "nvim-treesitter/nvim-treesitter", as = "treesitter", { run = ":TSUpdate" } })
+	use("nvim-treesitter/playground")
+	use("IndianBoy42/tree-sitter-just")
 
 	-- Unfortunately, treesitter doen't razor or blade syntax yet
 	use({ "jlcrochet/vim-razor" })
