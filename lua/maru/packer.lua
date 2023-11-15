@@ -83,6 +83,7 @@ return require("packer").startup(function(use)
 
 	-- file explorer
 	use({ "nvim-tree/nvim-tree.lua" })
+	use({ "stevearc/oil.nvim" })
 
 	-- Make Editing Easier
 	use({ "easymotion/vim-easymotion" })
