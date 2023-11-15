@@ -1,9 +1,19 @@
 local builtin = require("telescope.builtin")
+local actions = require'telescope.actions'
 
 require("telescope").setup({
 	pickers = {
 		buffers = {
 			sort_lastused = true,
+			mappings = {
+				n = {
+					["<C-d>"] = actions.delete_buffer,
+				},
+				i = {
+					["<C-h>"] = "which_key",
+					["<C-d>"] = actions.delete_buffer,
+				},
+			},
 		},
 	},
 	extensions = {
