@@ -6,14 +6,6 @@ vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
--- vim.keymap.set('i', '(;', '(<CR>);<C-c>O')
--- vim.keymap.set('i', '(,', '(<CR>),<C-c>O')
--- vim.keymap.set('i', '{;', '{<CR>};<C-c>O')
--- vim.keymap.set('i', '{,', '{<CR>},<C-c>O')
--- vim.keymap.set('i', '[;', '[<CR>];<C-c>O')
--- vim.keymap.set('i', '[,', '[<CR>],<C-c>O')
-
-
 -- keep cursor position when joining lines
 vim.keymap.set("n", "J", "mzJ`z")
 
@@ -37,7 +29,8 @@ vim.keymap.set("n", "<leader>S", "<Plug>(easymotion-sn)")
 vim.keymap.set("v", "ga", "<PLUG>(EasyAlign)")
 vim.keymap.set("x", "ga", "<PLUG>(EasyAlign)")
 
-vim.keymap.set("n", "<leader>q", ":bd<CR>")
+-- see https://stackoverflow.com/a/4468491
+vim.keymap.set("n", "<leader>q", ":bp|bd #<CR>")
 vim.keymap.set("n", "<leader>Q", ":%bd<CR>")
 
 vim.keymap.set("n", "<leader>pi", function()
