@@ -20,11 +20,7 @@ local packer_bootstrap = ensure_packer()
 return require("packer").startup(function(use)
 	use({ "wbthomason/packer.nvim" })
 
-	use({
-		"nvim-telescope/telescope.nvim",
-		tag = "0.1.3",
-		requires = { "nvim-lua/plenary.nvim" },
-	})
+	use({ "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim" } })
 	use({ "nvim-telescope/telescope-ui-select.nvim" })
 	use({ "nvim-telescope/telescope-symbols.nvim" })
 
@@ -35,9 +31,8 @@ return require("packer").startup(function(use)
 				input = {
 					enabled = true,
 					default_prompt = "> ",
-					start_in_insert = false,
 				},
-				select = { enabled = false },
+				select = { enabled = true },
 			})
 		end,
 	})
@@ -81,9 +76,12 @@ return require("packer").startup(function(use)
 	use({ "jlcrochet/vim-razor" })
 	use({ "jwalton512/vim-blade" })
 
-	-- file explorer
+	-- File Explorer
 	use({ "nvim-tree/nvim-tree.lua" })
 	use({ "stevearc/oil.nvim" })
+
+	-- File Templates
+	use("motosir/skel-nvim")
 
 	-- Make Editing Easier
 	use({ "easymotion/vim-easymotion" })
