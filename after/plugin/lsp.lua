@@ -124,6 +124,9 @@ lsp.on_attach(function(client, bufnr)
 		return telescope.lsp_definitions()
 	end, opts)
 
+	-- Open definition in vsplit
+	vim.keymap.set("n", "gD", ":vsp<cr><C-]>", opts)
+
 	vim.keymap.set("n", "gr", telescope.lsp_references)
 	-- stylua: ignore start
 	vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
