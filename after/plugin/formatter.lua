@@ -10,18 +10,7 @@ local settings = {
 	html = { require("formatter.filetypes.html").prettier },
 	xml = { require("formatter.filetypes.html").htmlbeautify },
 	sql = { require("formatter.filetypes.sql").pgformat },
-	cs = {
-
-		function()
-			return {
-				exe = "dotnet",
-				args = {
-					"csharpier",
-				},
-				stdin = true,
-			}
-		end,
-	},
+	cs = { require("formatter.filetypes.cs").csharpier },
 
 	["*"] = { require("formatter.filetypes.any").remove_trailing_whitespace },
 }

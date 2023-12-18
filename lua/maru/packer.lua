@@ -146,10 +146,12 @@ return require("packer").startup(function(use)
 			{ "rafamadriz/friendly-snippets" }, -- Optional
 		},
 	})
+
+	use("mfussenegger/nvim-lint")
 	use({
 		"dgagn/diagflow.nvim",
 		config = function()
-			require("diagflow").setup()
+			require("diagflow").setup({})
 		end,
 	})
 	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })

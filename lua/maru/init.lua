@@ -30,6 +30,10 @@ vim.opt.expandtab = false
 vim.opt.smartindent = true
 vim.opt.wrap = false
 
+vim.opt.title = true
+vim.opt.titlelen = 0
+vim.opt.titlestring = 'v %{expand("%:p")}'
+
 vim.opt.splitright = true
 
 vim.opt.swapfile = false
