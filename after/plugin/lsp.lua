@@ -10,6 +10,7 @@ lsp.ensure_installed({
 	"rust_analyzer",
 	"intelephense",
 	"lua_ls",
+	"emmet_ls",
 })
 
 -- Fix Undefined global 'vim'
@@ -27,6 +28,21 @@ lsp.configure("omnisharp", {
 	handlers = {
 		["textDocument/definition"] = omnisharp_extended.handler,
 	},
+})
+
+lsp.configure("emmet_ls", {
+	filetypes = {
+		"css",
+		"html",
+		"cshtml",
+		"less",
+		"sass",
+		"scss",
+	},
+})
+
+lsp.configure("csharp_ls", {
+	filetypes = { "cs", "razor", "cshtml", "csproj" },
 })
 
 -- Prevent the server from moving things around
