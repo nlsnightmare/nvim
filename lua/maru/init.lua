@@ -1,5 +1,4 @@
 require("maru.keys")
-require("maru.packer")
 
 -- make sure we can detect if we're running in wsl or plain linux
 local isWsl = false
@@ -10,7 +9,7 @@ if file ~= nil then
 	isWsl = true
 end
 
-local tab_size = 4
+local tab_size = 2
 
 vim.opt.guicursor = ""
 
