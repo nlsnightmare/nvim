@@ -1,13 +1,9 @@
 return {
-	{ "nvim-telescope/telescope.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
-	{ "nvim-telescope/telescope-ui-select.nvim" },
-	{ "nvim-telescope/telescope-symbols.nvim" },
-	{
-		"stevearc/aerial.nvim",
-		config = function()
-			require("aerial").setup()
-		end,
-	},
+	{ "folke/neodev.nvim", opts = {} },
+	-- { "nvim-telescope/telescope.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
+	-- { "nvim-telescope/telescope-ui-select.nvim" },
+	-- { "nvim-telescope/telescope-symbols.nvim" },
+	 "stevearc/aerial.nvim" ,
 	{
 		"stevearc/dressing.nvim",
 		config = function()
@@ -20,7 +16,7 @@ return {
 			})
 		end,
 	},
-	-- "mhinz/vim-startify",
+
 	{ "catppuccin/nvim", name = "catppuccin" },
 	{ "rose-pine/neovim", name = "rose-pine" },
 	{ "Shatur/neovim-ayu", name = "ayu" },
@@ -40,7 +36,17 @@ return {
 		end,
 	},
 
-	{ "nvim-lualine/lualine.nvim", dependencies = { "nvim-tree/nvim-web-devicons", lazy = true } },
+	{
+		"nvim-lualine/lualine.nvim",
+		config = function()
+			require("lualine").setup({
+				options = {
+					section_separators = { left = "", right = "" },
+				},
+			})
+		end,
+		dependencies = { "nvim-tree/nvim-web-devicons", lazy = true },
+	},
 	{ "nvim-treesitter/nvim-treesitter", name = "treesitter", build = ":TSUpdate" },
 	"nvim-treesitter/playground",
 	"IndianBoy42/tree-sitter-just",
@@ -48,12 +54,11 @@ return {
 	-- Unfortunately, treesitter doen't razor or blade syntax yet
 	"jlcrochet/vim-razor",
 	"jwalton512/vim-blade",
-	"stevearc/oil.nvim",
 
 	-- File Templates
-	"motosir/skel-nvim", -- Make Editing Easier
+	"motosir/skel-nvim",
+	-- Move around
 	"easymotion/vim-easymotion",
-	"tpope/vim-surround",
 	"jiangmiao/auto-pairs",
 	"tpope/vim-commentary",
 	"junegunn/vim-easy-align",
@@ -66,52 +71,35 @@ return {
 	-- { 'utilyre/sentiment.nvim', config = function()
 	-- 	require("sentiment").setup {}
 	-- end }
-	"tpope/vim-fugitive",
 	{ "mhartington/formatter.nvim" },
-	{
-		"folke/todo-comments.nvim",
-		dependencies = "nvim-lua/plenary.nvim",
-		config = function()
-			require("todo-comments").setup({})
-		end,
-	},
+	{ "folke/todo-comments.nvim", dependencies = "nvim-lua/plenary.nvim" },
 	{ "jghauser/mkdir.nvim" },
-	{ "folke/zen-mode.nvim", name = "zen-mode" },
 
 	{
 		"VonHeikemen/lsp-zero.nvim",
 		branch = "v1.x",
 		dependencies = {
 			-- LSP Support
-			{ "neovim/nvim-lspconfig" }, -- Required
-			{ "williamboman/mason.nvim" }, -- Optional
-			{ "williamboman/mason-lspconfig.nvim" }, -- Optional
+			"neovim/nvim-lspconfig",
+			{ "williamboman/mason.nvim", build = ":MasonUpdate" },
+			"williamboman/mason-lspconfig.nvim",
 
-			{ "Hoffs/omnisharp-extended-lsp.nvim" }, -- Optional
+			"Hoffs/omnisharp-extended-lsp.nvim",
 
 			-- Autocompletion
-			{ "hrsh7th/nvim-cmp" }, -- Required
-			{ "hrsh7th/cmp-nvim-lsp" }, -- Required
-			{ "hrsh7th/cmp-buffer" }, -- Optional
-			{ "hrsh7th/cmp-path" }, -- Optional
-			{ "saadparwaiz1/cmp_luasnip" }, -- Optional
-			{ "Issafalcon/lsp-overloads.nvim" },
+			"hrsh7th/nvim-cmp", -- Required
+			"hrsh7th/cmp-nvim-lsp", -- Required
+			"hrsh7th/cmp-buffer", -- Optional
+			"hrsh7th/cmp-path", -- Optional
+			"saadparwaiz1/cmp_luasnip", -- Optional
+			"Issafalcon/lsp-overloads.nvim",
 
-			{ "hrsh7th/cmp-nvim-lua" }, -- Optional
+			"hrsh7th/cmp-nvim-lua", -- Optional
 
 			-- Snippets
-			{ "L3MON4D3/LuaSnip" }, -- Required
-			{ "rafamadriz/friendly-snippets" }, -- Optional
+			"L3MON4D3/LuaSnip", -- Required
+			"rafamadriz/friendly-snippets", -- Optional
 		},
 	},
 	"mfussenegger/nvim-lint",
-	{
-		"dgagn/diagflow.nvim",
-		config = function()
-			require("diagflow").setup({})
-		end,
-	},
-
-	{ "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap" } },
-	{ "theHamsta/nvim-dap-virtual-text" },
 }
