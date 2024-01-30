@@ -8,5 +8,8 @@ return {
     "nvim-telescope/telescope.nvim", -- optional
     "ibhagwan/fzf-lua",              -- optional
   },
+	keys = {
+		{ "gg", "<CMD>:Neogit<CR>", desc = "Git Status" }
+	},
   config = true
 }
