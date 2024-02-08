@@ -19,6 +19,9 @@ return {
 	},
 	opts = {
 		pickers = {
+			colorscheme = {
+				enable_preview = true,
+			},
 			buffers = {
 				sort_lastused = true,
 				mappings = {

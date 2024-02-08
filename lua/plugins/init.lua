@@ -1,9 +1,5 @@
 return {
 	{ "folke/neodev.nvim", opts = {} },
-	-- { "nvim-telescope/telescope.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
-	-- { "nvim-telescope/telescope-ui-select.nvim" },
-	-- { "nvim-telescope/telescope-symbols.nvim" },
-	 "stevearc/aerial.nvim" ,
 	{
 		"stevearc/dressing.nvim",
 		config = function()
@@ -58,7 +54,6 @@ return {
 	-- File Templates
 	"motosir/skel-nvim",
 	-- Move around
-	"easymotion/vim-easymotion",
 	"jiangmiao/auto-pairs",
 	"tpope/vim-commentary",
 	"junegunn/vim-easy-align",
@@ -71,7 +66,6 @@ return {
 	-- { 'utilyre/sentiment.nvim', config = function()
 	-- 	require("sentiment").setup {}
 	-- end }
-	{ "mhartington/formatter.nvim" },
 	{ "folke/todo-comments.nvim", dependencies = "nvim-lua/plenary.nvim" },
 	{ "jghauser/mkdir.nvim" },
 

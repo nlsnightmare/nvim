@@ -9,7 +9,7 @@ return {
     "ibhagwan/fzf-lua",              -- optional
   },
 	keys = {
-		{ "gg", "<CMD>:Neogit<CR>", desc = "Git Status" }
+		{ "<leader>g", "<CMD>:Neogit<CR>", desc = "Git Status" }
 	},
-  config = true
+  config = true,
 }
