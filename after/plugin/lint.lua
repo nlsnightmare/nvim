@@ -5,7 +5,7 @@ local function dd(arg)
 end
 
 lint.linters_by_ft = {
-	php = { "phpstan" },
+	-- php = { "phpstan" },
 }
 
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
