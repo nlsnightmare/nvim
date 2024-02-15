@@ -62,7 +62,15 @@ lsp.configure("csharp_ls", {
 -- Prevent the server from moving things around
 local cmp = require("cmp")
 local luasnip = require("luasnip")
+luasnip.config.setup({
+	enable_autosnippets = true,
+	region_check_events = "CursorHold,InsertLeave",
+	-- those are for removing deleted snippets, also a common problem
+	delete_check_events = "TextChanged,InsertEnter",
+})
+
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
+require("luasnip.loaders.from_snipmate").lazy_load({ paths = { "./snippets" } })
 
 local has_words_before = function()
 	unpack = unpack or table.unpack
@@ -98,11 +106,11 @@ lsp.setup_nvim_cmp({
 	mapping = cmp_mappings,
 	-- make snippets have higher priority
 	sources = cmp.config.sources({
+		{ name = "luasnip", option = { show_autosnippets = true } },
 		{ name = "nvim_lsp" },
-		{ name = "luasnip" },
 	}, {
 		{ name = "path" },
-		{ name = "buffer" },
+		-- { name = "buffer" },
 	}),
 	enabled = function()
 		-- disable completion in comments

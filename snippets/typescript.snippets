@@ -1,0 +1,43 @@
+extends typescript
+
+snippet ij
+	private readonly $1 = inject($2);
+	$0
+
+snippet ngsrv Angular Service
+	import { HttpClient } from "@angular/common/http";
+	import { Injectable, inject } from "@angular/core";
+
+	@Injectable({ providedIn: 'root' })
+	export class $1Service {
+		private readonly http = inject(HttpClient);
+		$0
+	}
+
+
+snippet ngsrvq Angular Service with Query
+	import { HttpClient } from "@angular/common/http";
+	import { Injectable, inject } from "@angular/core";
+	import { injectMutation, injectQuery, injectQueryClient } from "@ngneat/query";
+
+	@Injectable({ providedIn: 'root' })
+	export class $1Service {
+		private readonly http = inject(HttpClient);
+		private readonly client = injectQueryClient();
+		private readonly query = injectQuery();
+		private readonly mutation = injectMutation();
+
+		$0
+	}
+	
+snippet ngcmp Angular Component
+	import { Component, inject } from "@angular/core";
+
+	@Component({
+		selector: 'app-${TM_FILENAME_BASE}',
+		templateUrl: './${TM_FILENAME_BASE}.html',
+		styleUrl: './${TM_FILENAME_BASE}.scss'
+	})
+	export class $1Component {
+		$0
+	}

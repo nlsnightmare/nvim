@@ -1,0 +1,34 @@
+extends php
+
+autosnippet this
+	\$this->
+
+autosnippet .
+	->
+
+snippet fn
+	fn ($1) => $0
+
+snippet pfn
+	public function $1($2)$3 {
+		$0
+	}
+
+snippet ppfun
+	private function $1($2)$3 {
+		$0
+	}
+
+snippet route:get
+	Route::get('${1:test}', function ($2) {
+		$0
+	});
+
+snippet con
+	function __construct($1)
+	{
+		$0
+	}
+	
+snippet af
+	'$1' => $0,
