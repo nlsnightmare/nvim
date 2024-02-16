@@ -1,7 +1,7 @@
 return {
 	"stevearc/oil.nvim",
 	keys = {
-		{ "-", "<cmd>Oil<cr>", desc = "Open Parent Directory" },
+		{ "-", ":Oil --float<CR>", desc = "Open Parent Directory" },
 	},
 	config = {
 		keymaps = {
