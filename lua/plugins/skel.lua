@@ -1,4 +1,6 @@
+-- File Templates
 return {
+	"motosir/skel-nvim",
 	opts = {
 		mappings = {
 			["*.php"] = "php.skel",

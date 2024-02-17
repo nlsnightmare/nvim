@@ -51,8 +51,6 @@ return {
 	"jlcrochet/vim-razor",
 	"jwalton512/vim-blade",
 
-	-- File Templates
-	"motosir/skel-nvim",
 	-- Move around
 	"jiangmiao/auto-pairs",
 	"tpope/vim-commentary",
