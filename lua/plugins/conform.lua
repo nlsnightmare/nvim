@@ -1,6 +1,6 @@
 return {
 	"stevearc/conform.nvim",
-	-- event = { "BufWritePre" },
+	event = { "BufWritePre" },
 	cmd = { "ConfirmInfo" },
 	keys = {
 		{
@@ -29,7 +29,7 @@ return {
 			blade = { "blade-formatter" },
 		},
 		-- Set up format-on-save
-		format_on_save = nil, -- { timeout_ms = 500, lsp_fallback = true },
+		format_on_save = { timeout_ms = 100, lsp_fallback = true },
 		-- Customize formatters
 		formatters = {
 			shfmt = {

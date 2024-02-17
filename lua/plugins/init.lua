@@ -95,5 +95,4 @@ return {
 			-- "rafamadriz/friendly-snippets", -- Optional
 		},
 	},
-	"mfussenegger/nvim-lint",
 }
