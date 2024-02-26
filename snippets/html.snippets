@@ -1,0 +1,27 @@
+extends html
+
+snippet if
+  @if($1) {
+    $0
+  }
+
+snippet for
+  @for ($1 of places().data; track $1.id}) {
+    $0
+  }
+
+snippet ion:card-page
+  <ion-content scrollbarTheme>
+    <ion-card width-constrained>
+      <ion-card-header color="secondary">
+        <ion-card-title>
+          <fa-duotone-icon icon="$1" />
+          <ion-label translate="$2" />
+        </ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        $0
+      </ion-card-content>
+    </ion-card>
+  </ion-content>

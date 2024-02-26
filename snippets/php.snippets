@@ -32,3 +32,8 @@ snippet con
 	
 snippet af
 	'$1' => $0,
+
+snippet db:table
+	Schema::table('$1', function (Blueprint \$table) {
+		\$table->$0;
+	});
