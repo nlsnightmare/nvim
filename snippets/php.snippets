@@ -6,6 +6,9 @@ autosnippet this
 autosnippet .
 	->
 
+snippet retme
+	return \$this;
+
 snippet fn
 	fn ($1) => $0
 
@@ -18,6 +21,13 @@ snippet ppfun
 	private function $1($2)$3 {
 		$0
 	}
+
+snippet getter
+	public function $1(): $2
+	{
+		return \$this->${3:$1};
+	}
+	$0
 
 snippet route:get
 	Route::get('${1:test}', function ($2) {
