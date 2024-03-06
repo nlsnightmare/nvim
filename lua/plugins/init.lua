@@ -19,6 +19,8 @@ return {
 	{ "folke/tokyonight.nvim", name = "tokyonight" },
 	{ "rebelot/kanagawa.nvim", name = "kanagawa" },
 	{ "embark-theme/vim", name = "embark" },
+	{ "nyoom-engineering/oxocarbon.nvim" },
+	{ "challenger-deep-theme/vim", name = "challenger-deep" },
 	"EdenEast/nightfox.nvim",
 	{
 		"utilyre/barbecue.nvim",
