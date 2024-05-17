@@ -18,6 +18,7 @@ return {
 	{ "Shatur/neovim-ayu", name = "ayu" },
 	{ "folke/tokyonight.nvim", name = "tokyonight" },
 	{ "rebelot/kanagawa.nvim", name = "kanagawa" },
+	{ "Everblush/nvim", name = "everblush" },
 	{ "embark-theme/vim", name = "embark" },
 	{ "nyoom-engineering/oxocarbon.nvim" },
 	{ "challenger-deep-theme/vim", name = "challenger-deep" },

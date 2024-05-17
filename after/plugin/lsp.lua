@@ -13,6 +13,27 @@ lsp.ensure_installed({
 	"emmet_ls",
 })
 
+lsp.configure("html_ls", {
+	filetypes = { "html", "cshtml", "blade" },
+})
+
+lsp.configure("emmet_ls", {
+	filetypes = {
+		"css",
+		"eruby",
+		"html",
+		"cshtml",
+		"javascript",
+		"javascriptreact",
+		"less",
+		"sass",
+		"scss",
+		"pug",
+		"typescriptreact",
+		"blade",
+	},
+})
+
 -- Fix Undefined global 'vim'
 lsp.configure("lua_ls", {
 	settings = {
@@ -42,17 +63,6 @@ lsp.configure("omnisharp", {
 	enable_roslyn_analyzers = true,
 	organize_imports_on_format = true,
 	enable_import_completion = true,
-})
-
-lsp.configure("emmet_ls", {
-	filetypes = {
-		"css",
-		"html",
-		"cshtml",
-		"less",
-		"sass",
-		"scss",
-	},
 })
 
 lsp.configure("csharp_ls", {

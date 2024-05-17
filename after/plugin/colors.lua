@@ -20,6 +20,6 @@ end
 if isWsl then
 	SetColorScheme("catppuccin-frappe")
 else
-	SetColorScheme("catppuccin-frappe")
-	-- SetColorScheme("embark")
+	-- SetColorScheme("catppuccin-frappe")
+	SetColorScheme("everblush")
 end
