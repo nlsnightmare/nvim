@@ -1,0 +1,15 @@
+extends cs
+
+snippet cw
+	Console.WriteLine($1);
+	$0
+
+snippet ns
+	namespace $1;
+	$0
+
+snippet cls
+	public class ${1:`vim_snippets#Filename()`}
+	{
+		${0}
+	}

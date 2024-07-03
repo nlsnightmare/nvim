@@ -55,6 +55,7 @@ return {
 	"jwalton512/vim-blade",
 
 	-- Move around
+	{ "echasnovski/mini.nvim", version = false },
 	"jiangmiao/auto-pairs",
 	"tpope/vim-commentary",
 	"junegunn/vim-easy-align",
@@ -88,6 +89,7 @@ return {
 			"hrsh7th/cmp-path", -- Optional
 			"saadparwaiz1/cmp_luasnip", -- Optional
 			"Issafalcon/lsp-overloads.nvim",
+			"ray-x/lsp_signature.nvim",
 
 			"hrsh7th/cmp-nvim-lua", -- Optional
 
