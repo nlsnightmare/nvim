@@ -6,7 +6,7 @@ local telescope = require("telescope.builtin")
 lsp.preset("recommended")
 
 lsp.ensure_installed({
-	"tsserver",
+	"ts_ls",
 	"rust_analyzer",
 	"intelephense",
 	"lua_ls",
