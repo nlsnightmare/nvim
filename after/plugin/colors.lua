@@ -17,9 +17,11 @@ if file ~= nil then
 	isWsl = true
 end
 
-if isWsl then
-	SetColorScheme("catppuccin-frappe")
-else
-	-- SetColorScheme("catppuccin-frappe")
-	SetColorScheme("everblush")
-end
+
+SetColorScheme "everblush"
+-- if isWsl then
+-- 	SetColorScheme("catppuccin-frappe")
+-- else
+-- 	SetColorScheme("catppuccin-frappe")
+-- 	-- SetColorScheme("embark")
+-- end
