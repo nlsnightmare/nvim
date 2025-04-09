@@ -14,7 +14,7 @@ lsp.ensure_installed({
 })
 
 lsp.configure("html_ls", {
-	filetypes = { "html", "cshtml", "blade" },
+	filetypes = { "html", "cshtml", "blade", "htmlangular" },
 })
 
 lsp.configure("emmet_ls", {
@@ -25,6 +25,7 @@ lsp.configure("emmet_ls", {
 		"cshtml",
 		"javascript",
 		"javascriptreact",
+		"htmlangular",
 		"less",
 		"sass",
 		"scss",

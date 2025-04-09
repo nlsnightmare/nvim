@@ -16,16 +16,17 @@ return {
 	opts = {
 		formatters_by_ft = {
 			lua = { "stylua" },
-			typescript = { { "prettierd", "prettier" } },
+			typescript = { "prettierd", "prettier" },
 			json = { "fixjson" },
 			scss = { "prettier" },
 			sh = { "shfmt" },
-			markdown = { { "prettierd", "prettier" } },
-			html = { { "prettierd", "prettier" } },
-			xml = { "htmlbeautify" },
+			markdown = { "prettierd", "prettier" },
+			html = { "htmlbeautifier", "prettierd", "prettier" },
+			htmlangular = { "htmlbeautifier", "prettierd", "prettier" },
+			xml = { "htmlbeautifier" },
 			sql = { "pgformat" },
 			cs = { "csharpier" },
-			javascript = { { "prettierd", "prettier" } },
+			javascript = { "prettierd", "prettier" },
 			blade = { "blade-formatter" },
 		},
 		-- Set up format-on-save
