@@ -18,10 +18,10 @@ if file ~= nil then
 end
 
 
-SetColorScheme "everblush"
+SetColorScheme("embark")
+-- SetColorScheme "everblush"
 -- if isWsl then
 -- 	SetColorScheme("catppuccin-frappe")
 -- else
 -- 	SetColorScheme("catppuccin-frappe")
--- 	-- SetColorScheme("embark")
 -- end
