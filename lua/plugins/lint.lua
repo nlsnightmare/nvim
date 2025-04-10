@@ -6,7 +6,7 @@ return {
 
 		lint.linters_by_ft = {
 			php = { "phpstan" },
-			typescript = { { "eslint_id", "eslint" } },
+			typescript = { "eslint_id", "eslint" },
 		}
 		-- Use the "*" filetype to run linters on all filetypes.
 		-- ["*"] = { "global linter" },
