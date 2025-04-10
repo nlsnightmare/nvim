@@ -23,7 +23,6 @@ lsp.configure("emmet_ls", {
 		"eruby",
 		"html",
 		"cshtml",
-		"javascript",
 		"javascriptreact",
 		"htmlangular",
 		"less",
