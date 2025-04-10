@@ -1,5 +1,5 @@
 return {
-	{ "folke/neodev.nvim",               opts = {} },
+	{ "folke/neodev.nvim", opts = {} },
 	{
 		"stevearc/dressing.nvim",
 		config = function()
@@ -21,7 +21,7 @@ return {
 	{ "Everblush/nvim", name = "everblush" },
 	{ "embark-theme/vim", name = "embark" },
 	{ "nyoom-engineering/oxocarbon.nvim" },
-	{ "challenger-deep-theme/vim",       name = "challenger-deep" },
+	{ "challenger-deep-theme/vim", name = "challenger-deep" },
 	"EdenEast/nightfox.nvim",
 	{
 		"utilyre/barbecue.nvim",
@@ -35,17 +35,6 @@ return {
 		end,
 	},
 
-	{
-		"nvim-lualine/lualine.nvim",
-		config = function()
-			require("lualine").setup({
-				options = {
-					section_separators = { left = "", right = "" },
-				},
-			})
-		end,
-		dependencies = { "nvim-tree/nvim-web-devicons", lazy = true },
-	},
 	{
 		"nvim-treesitter/nvim-treesitter",
 		name = "treesitter",
@@ -88,10 +77,10 @@ return {
 			"Hoffs/omnisharp-extended-lsp.nvim",
 
 			-- Autocompletion
-			"hrsh7th/nvim-cmp",      -- Required
-			"hrsh7th/cmp-nvim-lsp",  -- Required
-			"hrsh7th/cmp-buffer",    -- Optional
-			"hrsh7th/cmp-path",      -- Optional
+			"hrsh7th/nvim-cmp", -- Required
+			"hrsh7th/cmp-nvim-lsp", -- Required
+			"hrsh7th/cmp-buffer", -- Optional
+			"hrsh7th/cmp-path", -- Optional
 			"saadparwaiz1/cmp_luasnip", -- Optional
 			"Issafalcon/lsp-overloads.nvim",
 			"ray-x/lsp_signature.nvim",
