@@ -50,3 +50,21 @@ snippet db:table
 	Schema::table('$1', function (Blueprint \$table) {
 		\$table->$0;
 	});
+
+snippet try
+	try {
+		$0
+	} catch (\\Throwable \$th) {
+		report(\$th);
+		$1
+	}
+
+snippet linfo
+	\Log::info("$1", $0);
+
+snippet lerror
+	\Log::error("$1", $0);
+
+snippet lwarn
+	\Log::warning("$1", $0);
+

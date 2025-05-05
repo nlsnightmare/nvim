@@ -40,7 +40,8 @@ snippet ngcmp Angular Component
 	@Component({
 		selector: 'app-${TM_FILENAME_BASE}',
 		templateUrl: './${TM_FILENAME_BASE}.html',
-		styleUrl: './${TM_FILENAME_BASE}.scss'
+		styleUrl: './${TM_FILENAME_BASE}.scss',
+		standalone: false,
 	})
 	export class $1Component {
 		$0
