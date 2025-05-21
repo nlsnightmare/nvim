@@ -5,9 +5,14 @@ autosnippet this
 
 autosnippet .
 	->
+autosnippet if
+	if ($1) {
+		$0
+	}
 
 snippet retme
 	return \$this;
+
 
 snippet fn
 	fn ($1) => $0
