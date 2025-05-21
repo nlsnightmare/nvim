@@ -19,15 +19,15 @@ return {
 		end,
 	},
 
-	{ "catppuccin/nvim", name = "catppuccin" },
-	{ "rose-pine/neovim", name = "rose-pine" },
-	{ "Shatur/neovim-ayu", name = "ayu" },
-	{ "folke/tokyonight.nvim", name = "tokyonight" },
-	{ "rebelot/kanagawa.nvim", name = "kanagawa" },
-	{ "Everblush/nvim", name = "everblush" },
-	{ "embark-theme/vim", name = "embark" },
+	{ "catppuccin/nvim",                 name = "catppuccin" },
+	{ "rose-pine/neovim",                name = "rose-pine" },
+	{ "Shatur/neovim-ayu",               name = "ayu" },
+	{ "folke/tokyonight.nvim",           name = "tokyonight" },
+	{ "rebelot/kanagawa.nvim",           name = "kanagawa" },
+	{ "Everblush/nvim",                  name = "everblush" },
+	{ "embark-theme/vim",                name = "embark" },
 	{ "nyoom-engineering/oxocarbon.nvim" },
-	{ "challenger-deep-theme/vim", name = "challenger-deep" },
+	{ "challenger-deep-theme/vim",       name = "challenger-deep" },
 	"EdenEast/nightfox.nvim",
 	{
 		"utilyre/barbecue.nvim",
@@ -55,8 +55,15 @@ return {
 	"jwalton512/vim-blade",
 
 	-- Move around
-	{ "echasnovski/mini.nvim", version = false },
-	"jiangmiao/auto-pairs",
+	{ "echasnovski/mini.nvim",    version = false },
+	{
+		'windwp/nvim-autopairs',
+		event = "InsertEnter",
+		config = true
+		-- use opts = {} for passing setup options
+		-- this is equivalent to setup({}) function
+	},
+
 	"tpope/vim-commentary",
 	"junegunn/vim-easy-align",
 	{
