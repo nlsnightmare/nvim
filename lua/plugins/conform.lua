@@ -1,7 +1,8 @@
 return {
 	"stevearc/conform.nvim",
-	-- event = { "BufWritePre" },
-	cmd = { "ConfirmInfo" },
+	lazy = false,
+	event = { "BufWritePre" },
+	cmd = { "Conform" },
 	keys = {
 		{
 			-- Customize or remove this keymap to your liking
