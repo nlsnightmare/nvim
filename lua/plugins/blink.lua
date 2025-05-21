@@ -28,8 +28,7 @@ return {
 			menu = {
 				draw = {
 					-- columns = { { "label", gap = 1 }, { "kind_icon" } },
-					components = {
-					},
+					components = {},
 					padding = { 1, 1 }, -- padding only on right side
 				},
 			},
