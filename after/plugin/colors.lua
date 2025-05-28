@@ -18,8 +18,9 @@ if file ~= nil then
 end
 
 SetColorScheme("ayu-mirage")
--- if isWsl then
--- 	SetColorScheme("catppuccin-frappe")
--- else
+
+if isWsl then
+	SetColorScheme("catppuccin-frappe")
+end
 -- 	SetColorScheme("catppuccin-frappe")
 -- end
