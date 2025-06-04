@@ -8,8 +8,9 @@ return {
 	opts = {
 		keymap = {
 			preset = "enter",
-			["<Tab>"] = { "snippet_forward", "select_next", "fallback" },
+			["<Tab>"] = { "select_next", "fallback" },
 			["<S-Tab>"] = { "select_prev", "fallback" },
+			["<C-j>"] = { "snippet_forward" },
 		},
 		snippets = { preset = "luasnip" },
 
