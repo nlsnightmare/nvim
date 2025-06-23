@@ -7,16 +7,22 @@ vim.opt.autoindent = true
 vim.opt.completeopt = { "menu", "menuone", "noselect", "noinsert", "fuzzy" }
 vim.opt.shortmess:append("c")
 
-vim.lsp.config('typescript-language-server', {
+vim.lsp.config("typescript-language-server", {
 	filetypes = { "javascript", "typescript", "htmlangular" },
-	root_markers = { "package.json" }
-})
-vim.lsp.config('angular-language-server', {
-	filetypes = { "ts", "typescript", "htmlangular" },
-	root_markers = { "angular.json" }
+	root_markers = { "package.json" },
 })
 
-vim.lsp.config('dartls', {})
+vim.lsp.config("html_ls", {
+	filetypes = { "javascript", "typescript", "htmlangular" },
+	root_markers = { "package.json" },
+})
+
+vim.lsp.config("angular-language-server", {
+	filetypes = { "ts", "typescript", "htmlangular" },
+	root_markers = { "angular.json" },
+})
+
+vim.lsp.config("dartls", {})
 
 vim.lsp.enable({
 	"dartls",
@@ -26,10 +32,9 @@ vim.lsp.enable({
 	"emmet_ls",
 	"omnisharp",
 	"angular-language-server",
-	"ts_ls"
+	"ts_ls",
 })
 vim.lsp.enable("text", false)
-
 
 -- vim.lsp.config('*', {
 --   capabilities = {
@@ -186,12 +191,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.keymap.set("n", "gd", telescope.lsp_definitions)
 		vim.keymap.set("n", "<leader>vws", vim.lsp.buf.workspace_symbol, opts)
 		vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, opts)
-		vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action, opts)
+		vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action, opts)
 		vim.keymap.set("n", "[d", vim.diagnostic.goto_next, opts)
 		vim.keymap.set("n", "]d", vim.diagnostic.goto_prev, opts)
 		vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, opts)
 		vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
-		vim.keymap.set("n", "<leader>f", function() vim.lsp.buf.format { async = true } end, opts)
 		-- 		-- stylua: ignore end
 
 		-- 		-- vim.keymap.set('i', "<C-p>", function() cmp.mapping.select_prev_item(cmp_select) end, opts);
