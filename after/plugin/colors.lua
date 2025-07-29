@@ -20,7 +20,7 @@ end
 SetColorScheme("ayu-mirage")
 
 if isWsl then
-	SetColorScheme("rose-pine")
+	SetColorScheme("catppuccin-latte")
 end
 -- 	SetColorScheme("catppuccin-frappe")
 -- end
