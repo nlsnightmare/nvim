@@ -9,10 +9,10 @@ vim.lsp.config("typescript-language-server", {
 	root_markers = { "package.json" },
 })
 
-vim.lsp.config("angularls", {
-	filetypes = { "htmlangular", "html" },
-	root_markers = { "angular.json" },
-})
+-- vim.lsp.config("angularls", {
+-- 	filetypes = { "htmlangular", "html" },
+-- 	root_markers = { "angular.json" },
+-- })
 
 vim.lsp.config("dartls", {})
 
