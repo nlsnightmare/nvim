@@ -10,7 +10,13 @@ return {
 		"ibhagwan/fzf-lua", -- optional
 	},
 	keys = {
-		{ "<leader>g", "<CMD>:Neogit<CR>", desc = "Git Status" },
+		{
+			"<leader>g",
+			function()
+				require("neogit").open({ kind = "replace" })
+			end,
+			desc = "Open Neogit UI",
+		},
 	},
 	config = true,
 }
