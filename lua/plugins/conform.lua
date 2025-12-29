@@ -28,7 +28,7 @@ return {
 			sql = { "pgformat" },
 			cs = { "csharpier" },
 			javascript = { "prettierd", "prettier" },
-			blade = { "blade-formatter" },
+			blade = { "blade-formatter", "prettierd" },
 		},
 		-- Set up format-on-save
 		-- format_on_save = { timeout_ms = 500, lsp_fallback = true },

@@ -9,7 +9,7 @@ if file ~= nil then
 	isWsl = true
 end
 
-local tab_size = 2
+local tab_size = 4
 
 vim.opt.guicursor = ""
 
@@ -22,9 +22,11 @@ vim.cmd([[set autoindent]])
 
 vim.opt.number = true
 vim.opt.relativenumber = true
+
 vim.opt.tabstop = tab_size
 vim.opt.softtabstop = tab_size
 vim.opt.shiftwidth = tab_size
+
 vim.opt.expandtab = false
 vim.opt.smartindent = true
 vim.opt.wrap = false
@@ -43,6 +45,9 @@ vim.opt.incsearch = true
 vim.opt.termguicolors = true
 
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+
+-- vim.opt.listchars = "tab:» ,space:·"
+-- vim.opt.list = true
 
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"

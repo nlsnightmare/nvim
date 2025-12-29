@@ -4,11 +4,6 @@ vim.opt.autoindent = true
 vim.opt.completeopt = { "menu", "menuone", "noselect", "noinsert", "fuzzy" }
 vim.opt.shortmess:append("c")
 
--- vim.lsp.config("typescript-language-server", {
--- 	filetypes = { "javascript", "typescript", "htmlangular" },
--- 	root_markers = { "package.json" },
--- })
-
 vim.lsp.config("angularls", {
 	filetypes = { "htmlangular", "html" },
 	root_markers = { "angular.json" },
@@ -16,11 +11,23 @@ vim.lsp.config("angularls", {
 
 vim.lsp.config("dartls", {})
 
-vim.lsp.config["biome"] = {
-	filetypes = { "json" },
-}
+vim.lsp.config["biome"] = { filetypes = { "json" } }
+
+vim.lsp.config("emmet_ls", { filetypes = { "htmlangular", "html", "blade" } })
+
+vim.lsp.config("lua_ls", {
+	settings = {
+		Lua = {
+			telemetry = { enable = false },
+			diagnostics = {
+				globals = { "vim" },
+			},
+		},
+	},
+})
 
 vim.lsp.enable({
+	"clangd",
 	"dartls",
 	"lua_ls",
 	"intelephense",
@@ -31,6 +38,7 @@ vim.lsp.enable({
 	"tsgo",
 	"biome",
 })
+
 vim.lsp.enable("text", false)
 
 vim.api.nvim_create_autocmd("LspAttach", {

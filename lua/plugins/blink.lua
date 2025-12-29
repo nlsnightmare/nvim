@@ -15,7 +15,7 @@ return {
 		snippets = { preset = "luasnip" },
 
 		sources = {
-			default = { "lsp", "snippets" },
+			default = { "lsp", "snippets", "path" },
 			providers = {
 				snippets = { min_keyword_length = 0 },
 			},
