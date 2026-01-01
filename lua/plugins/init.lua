@@ -41,19 +41,6 @@ return {
 		end,
 	},
 
-	{
-		"nvim-treesitter/nvim-treesitter",
-		name = "treesitter",
-		build = ":TSUpdate",
-	},
-
-	"nvim-treesitter/playground",
-	"IndianBoy42/tree-sitter-just",
-
-	-- Unfortunately, treesitter doen't razor or blade syntax yet
-	"jlcrochet/vim-razor",
-	"jwalton512/vim-blade",
-
 	-- Move around
 	{ "echasnovski/mini.nvim", version = false },
 	{
