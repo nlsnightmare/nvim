@@ -33,7 +33,7 @@ vim.opt.wrap = false
 
 vim.opt.title = true
 vim.opt.titlelen = 0
-vim.opt.titlestring = 'v %{expand("%:p")}'
+vim.opt.titlestring = "%t"
 
 vim.opt.splitright = true
 

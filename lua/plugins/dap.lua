@@ -1,35 +1,43 @@
 return {
 	"mfussenegger/nvim-dap",
+	lazy = false,
 	dependencies = {
 		{ "nvim-neotest/nvim-nio" },
 		{
-			"rcarriga/nvim-dap-ui",
-			opts = {
-				layouts = {
-					{
-						elements = {
-							{ id = "stacks", size = 0.10 },
-							{ id = "breakpoints", size = 0.20 },
-							{ id = "scopes", size = 0.45 },
-							{ id = "watches", size = 0.25 },
-						},
-						position = "left",
-						size = 80,
-					},
-					{
-						elements = { { id = "repl", size = 1 } },
-						position = "bottom",
-						size = 10,
-					},
-				},
-			},
+			"igorlfs/nvim-dap-view",
+			---@module 'dap-view'
+			---@type dapview.Config
+			opts = {},
 		},
+		-- {
+		-- 	"rcarriga/nvim-dap-ui",
+		-- 	opts = {
+		-- 		layouts = {
+		-- 			{
+		-- 				elements = {
+		-- 					{ id = "stacks", size = 0.10 },
+		-- 					{ id = "breakpoints", size = 0.20 },
+		-- 					{ id = "scopes", size = 0.45 },
+		-- 					{ id = "watches", size = 0.25 },
+		-- 				},
+		-- 				position = "left",
+		-- 				size = 80,
+		-- 			},
+		-- 			{
+		-- 				elements = { { id = "repl", size = 1 } },
+		-- 				position = "bottom",
+		-- 				size = 10,
+		-- 			},
+		-- 		},
+		-- 	},
+		-- },
 		{ "theHamsta/nvim-dap-virtual-text", opts = {} },
 	},
 	-- stylua: ignore
 	keys = {
 		{ "<leader>dT", function() require('dap').terminate() end,          desc = "Terminate Dap Session"        },
-		{ "<leader>dd", function() require("dapui").toggle() end,           desc = "Toggle DapUI"                 },
+		-- { "<leader>dd", function() require("dapui").toggle() end,           desc = "Toggle DapUI"                 },
+		{ "<leader>dd", function() require("dap-view").toggle() end,           desc = "Toggle DapUI"                 },
 		{ "<leader>db", function() require("dap").toggle_breakpoint() end,  desc = "Toggle Breakpoint"            },
 		{ "<leader>dr", function() require('dap').repl.open() end,          desc = "Open Repl"                    },
 		{ "<leader>di", function() require('dap').step_into() end,          desc = "Step Into"                    },
@@ -42,21 +50,23 @@ return {
 	},
 	config = function()
 		local dap = require("dap")
-		local dapui = require("dapui")
+		local dapui = require("dap-view")
 
 		dap.listeners.before.attach.dapui_config = dapui.open
 		dap.listeners.before.launch.dapui_config = dapui.open
 		dap.listeners.before.event_terminated.dapui_config = dapui.close
 		dap.listeners.before.event_exited.dapui_config = dapui.close
 
+		-- local dapui = require("dapui")
+		-- dap.listeners.before.attach.dapui_config = dapui.open
+		-- dap.listeners.before.launch.dapui_config = dapui.open
+		-- dap.listeners.before.event_terminated.dapui_config = dapui.close
+		-- dap.listeners.before.event_exited.dapui_config = dapui.close
+
 		dap.adapters.php = {
 			type = "executable",
-			command = "node",
-			args = { "/home/maru/.local/share/vscode-php-debug/out/phpDebug.js" },
-		}
-
-		dap.configurations.php = {
-			{ type = "php", request = "launch", name = "Listen for Xdebug", port = 9003 },
+			command = "bash",
+			args = { "/home/maru/.local/share/nvim/mason/bin/php-debug-adapter" },
 		}
 
 		dap.adapters.node2 = {
