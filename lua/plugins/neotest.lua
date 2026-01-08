@@ -8,7 +8,12 @@ return {
 	},
 	cmd = "Neotest",
 	keys = {
-		{ "<leader>T", "<cmd>Neotest run<cr>", desc = "Neotest" },
+		{ "<leader>R", "<cmd>Neotest run<cr>", desc = "Run test under cursor" },
+		{ "<leader>tr", "<cmd>Neotest run<cr>", desc = "Run test under cursor" },
+		{ "<leader>ts", "<cmd>Neotest summary<cr>", desc = "Neotest Summary" },
+		{ "<leader>to", "<cmd>Neotest output-panel<cr>", desc = "Neotest Output Panel" },
+		{ "<leader>tn", "<cmd>Neotest jump next<cr>", desc = "Neotest Jump (next test)" },
+		{ "<leader>tp", "<cmd>Neotest jump next<cr>", desc = "Neotest Jump (prev test)" },
 	},
 	config = function()
 		require("neotest").setup({
