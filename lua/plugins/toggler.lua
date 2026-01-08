@@ -1,5 +1,10 @@
 return {
 	"nguyenvukhang/nvim-toggler",
 	lazy = false,
-	config = true,
+	config = {
+		inverses = {
+			["accept"] = "reject",
+			["public"] = "private",
+		},
+	},
 }
