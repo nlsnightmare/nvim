@@ -27,9 +27,10 @@ return {
 		-- (Default) Only show the documentation popup when manually triggered
 		completion = {
 			menu = {
+				border = "single",
 				draw = {
-					-- columns = { { "label", gap = 1 }, { "kind_icon" } },
-					components = {},
+					columns = { { "label", "label_description", gap = 1 }, { "kind_icon" } },
+					-- components = {},
 					padding = { 1, 1 }, -- padding only on right side
 				},
 			},
@@ -44,7 +45,11 @@ return {
 			ghost_text = {
 				enabled = false,
 			},
+			signature = {
+				window = { border = "single" },
+			},
 			documentation = {
+				window = { border = "single" },
 				auto_show = true,
 				auto_show_delay_ms = 20,
 			},
