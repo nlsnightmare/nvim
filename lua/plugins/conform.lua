@@ -18,7 +18,8 @@ return {
 		formatters_by_ft = {
 			lua = { "stylua" },
 			typescript = { "prettierd", "prettier" },
-			json = { "fixjson" },
+			json = { "prettierd", "fixjson" },
+			jsonc = { "prettierd", "fixjson" },
 			scss = { "prettierd", "prettier" },
 			sh = { "shfmt" },
 			markdown = { "prettierd", "prettier" },
