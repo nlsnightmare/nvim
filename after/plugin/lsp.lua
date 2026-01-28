@@ -13,7 +13,7 @@ vim.lsp.config("dartls", {})
 
 vim.lsp.config["biome"] = { filetypes = { "json" } }
 
-vim.lsp.config("emmet_ls", { filetypes = { "htmlangular", "html", "blade" } })
+vim.lsp.config("emmet_ls", { filetypes = { "htmlangular", "html", "blade", "scss" } })
 
 vim.lsp.config("lua_ls", {
 	settings = {
@@ -28,6 +28,8 @@ vim.lsp.config("lua_ls", {
 
 vim.lsp.enable({
 	"clangd",
+	"gleam",
+	"runst_analyzer",
 	"dartls",
 	"lua_ls",
 	"intelephense",
