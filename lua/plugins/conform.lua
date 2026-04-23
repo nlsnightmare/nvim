@@ -25,15 +25,21 @@ return {
 			markdown = { "prettierd", "prettier" },
 			html = { "prettierd", "prettier" },
 			htmlangular = { "prettierd", "prettier" },
-			xml = { "prettierd" },
+			xml = { "prettierd", "xmlformatter" },
 			sql = { "pgformat" },
 			cs = { "csharpier" },
 			javascript = { "prettierd", "prettier" },
 			blade = { "blade-formatter", "prettierd" },
 		},
-		-- Set up format-on-save
-		-- format_on_save = { timeout_ms = 500, lsp_fallback = true },
-		format_after_save = { timeout_ms = 100, lsp_fallback = true },
+
+		format_after_save = function(bufnr)
+			if vim.b.disable_autoformat then
+				return
+			end
+
+			return { timeout_ms = 100, lsp_fallback = true }
+		end,
+
 		-- Customize formatters
 		formatters = {
 			shfmt = {

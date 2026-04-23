@@ -9,7 +9,14 @@ vim.lsp.config("angularls", {
 	root_markers = { "angular.json" },
 })
 
-vim.lsp.config("dartls", {})
+vim.lsp.config["dartls"] = {
+	cmd = {
+		"fvm",
+		"dart",
+		"language-server",
+		"--protocol=lsp",
+	},
+}
 
 vim.lsp.config["biome"] = { filetypes = { "json" } }
 
@@ -33,7 +40,6 @@ vim.lsp.enable({
 	"dartls",
 	"lua_ls",
 	"intelephense",
-	"jsonls",
 	"emmet_ls",
 	"omnisharp",
 	"angularls",
@@ -52,24 +58,21 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		-- 			vim.lsp.completion.enable(true, client.id, event.buf, { autotrigger = true })
 		-- 		end
 
+		-- Common options for everything
 		local opts = { buffer = event.buf }
 
-		-- 		-- huh? looks like lsp disables autoindent
-		-- 		-- Open definition in vsplit
-
-		-- 		-- stylua: ignore start
-		vim.keymap.set("n", "gD", ":vsp<cr><C-]>", opts)
-		-- vim.keymap.set("n", "K",           vim.lsp.buf.hover,                   opts)
-		vim.keymap.set("n", "gr", telescope.lsp_references)
-		vim.keymap.set("n", "gd", telescope.lsp_definitions)
+		-- stylua: ignore start
+		vim.keymap.set("n", "gD",          ":vsp<cr><C-]>",              opts)
+		vim.keymap.set("n", "gr",          telescope.lsp_references)
+		vim.keymap.set("n", "gd",          telescope.lsp_definitions)
 		vim.keymap.set("n", "<leader>vws", vim.lsp.buf.workspace_symbol, opts)
-		vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, opts)
-		vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action, opts)
-		vim.keymap.set("n", "[d", vim.diagnostic.goto_next, opts)
-		vim.keymap.set("n", "]d", vim.diagnostic.goto_prev, opts)
-		vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, opts)
-		vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
-		-- 		-- stylua: ignore end
+		vim.keymap.set("n", "<leader>vd",  vim.diagnostic.open_float,    opts)
+		vim.keymap.set("n", "<leader>a",   vim.lsp.buf.code_action,      opts)
+		vim.keymap.set("n", "[d",          vim.diagnostic.goto_next,     opts)
+		vim.keymap.set("n", "]d",          vim.diagnostic.goto_prev,     opts)
+		vim.keymap.set("n", "<leader>r",   vim.lsp.buf.rename,           opts)
+		vim.keymap.set("i", "<C-h>",       vim.lsp.buf.signature_help,   opts)
+		-- stylua: ignore end
 	end,
 })
 

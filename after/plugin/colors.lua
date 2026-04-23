@@ -17,4 +17,4 @@ if file ~= nil then
 	isWsl = true
 end
 
-SetColorScheme("nightfox")
+SetColorScheme("catppuccin-frappe")

@@ -46,9 +46,6 @@ vim.opt.termguicolors = true
 
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 
--- vim.opt.listchars = "tab:» ,space:·"
--- vim.opt.list = true
-
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
@@ -72,6 +69,12 @@ else
 end
 
 vim.cmd([[autocmd FileType php setlocal commentstring=//\ %s]])
-vim.cmd([[autocmd FileType json set equalprg=jq]])
 
--- vim.api.nvim_create_user_command('Symbols', 'Telescope symbols', {})
+-- Blade/Markdown files should not be auto formatted.
+-- The automatic indentation is treated by markdown as a quote, breaking everything
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+	pattern = { "*/emails/**.blade.php" },
+	callback = function()
+		vim.b.disable_autoformat = true
+	end,
+})
