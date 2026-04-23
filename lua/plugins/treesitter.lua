@@ -2,17 +2,19 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
-		branch = "master",
+		branch = "main",
 		lazy = false,
 		init = function()
-			require("nvim-treesitter.configs").setup({
-				auto_install = true,
-				highlight = {
-					enable = true,
-					additional_vim_regex_highlighting = true,
-				},
+			vim.api.nvim_create_autocmd('FileType', {
+				callback = function()
+					-- Enable treesitter highlighting and disable regex syntax
+					pcall(vim.treesitter.start)
+
+					-- Enable treesitter-based indentation
+					vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+				end
 			})
-		end,
+		end
 	},
 
 	{ "IndianBoy42/tree-sitter-just" },

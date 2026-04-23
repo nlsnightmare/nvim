@@ -20,7 +20,7 @@ vim.lsp.config["dartls"] = {
 
 vim.lsp.config["biome"] = { filetypes = { "json" } }
 
-vim.lsp.config("emmet_ls", { filetypes = { "htmlangular", "html", "blade", "scss" } })
+vim.lsp.config("emmet_ls", { filetypes = { "htmlangular", "html", "blade", "scss", "css" } })
 
 vim.lsp.config("lua_ls", {
 	settings = {
