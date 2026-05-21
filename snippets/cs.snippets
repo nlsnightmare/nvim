@@ -8,6 +8,10 @@ snippet ns
 	namespace $1;
 	$0
 
+snippet prop
+	public required ${1:string} $2 {get; set;}
+	$0
+
 snippet cls
 	public class ${1:`vim_snippets#Filename()`}
 	{

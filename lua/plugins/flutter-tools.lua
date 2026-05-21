@@ -1,10 +1,17 @@
-return {
-	"nvim-flutter/flutter-tools.nvim",
-	lazy = false,
-	ft = "dart",
-	dependencies = { "nvim-lua/plenary.nvim" },
-	config = true,
-	opts = {
-		fvm = true,
-	},
-}
+return {}
+-- return {
+-- 	"nvim-flutter/flutter-tools.nvim",
+-- 	lazy = false,
+-- 	ft = "dart",
+-- 	dependencies = { "nvim-lua/plenary.nvim" },
+-- 	config = true,
+-- 	opts = {
+-- 		fvm = true,
+-- 		cmd = {
+-- 			"fvm",
+-- 			"dart",
+-- 			"language-server",
+-- 			"--protocol=lsp",
+-- 		},
+-- 	},
+-- }

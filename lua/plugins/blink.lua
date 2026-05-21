@@ -45,9 +45,7 @@ return {
 			ghost_text = {
 				enabled = false,
 			},
-			signature = {
-				window = { border = "single" },
-			},
+			signature = {},
 			documentation = {
 				window = { border = "single" },
 				auto_show = true,

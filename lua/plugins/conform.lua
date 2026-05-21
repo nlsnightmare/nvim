@@ -21,6 +21,7 @@ return {
 			json = { "prettierd", "fixjson" },
 			jsonc = { "prettierd", "fixjson" },
 			scss = { "prettierd", "prettier" },
+			css = { "prettierd", "prettier" },
 			sh = { "shfmt" },
 			markdown = { "prettierd", "prettier" },
 			html = { "prettierd", "prettier" },
@@ -29,7 +30,7 @@ return {
 			sql = { "pgformat" },
 			cs = { "csharpier" },
 			javascript = { "prettierd", "prettier" },
-			blade = { "blade-formatter", "prettierd" },
+			blade = { "blade-formatter" },
 		},
 
 		format_after_save = function(bufnr)
