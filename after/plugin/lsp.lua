@@ -9,16 +9,18 @@ vim.lsp.config("angularls", {
 	root_markers = { "angular.json" },
 })
 
-vim.lsp.config["dartls"] = {
+-- vim.lsp.set_log_level("debug")
+vim.lsp.config("dartls", {
+	-- root_markers = { "pubspec.yaml" },
+	filetypes = { "dart" },
 	cmd = {
 		"fvm",
 		"dart",
 		"language-server",
 		"--protocol=lsp",
 	},
-}
-
-vim.lsp.config["biome"] = { filetypes = { "json" } }
+})
+vim.lsp.enable("dartls")
 
 vim.lsp.config("emmet_ls", { filetypes = { "htmlangular", "html", "blade", "scss", "css" } })
 
@@ -44,7 +46,8 @@ vim.lsp.enable({
 	"omnisharp",
 	"angularls",
 	"tsgo",
-	"biome",
+	-- "ts_ls",
+	"jsonls",
 })
 
 vim.lsp.enable("text", false)
