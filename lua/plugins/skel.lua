@@ -1,11 +1,17 @@
 -- File Templates
+local snip = require("maru.snippets")
+
 return {
 	"motosir/skel-nvim",
 	opts = {
 		mappings = {
 			["*.php"] = "php.skel",
+			["*.dart"] = "dart.skel",
 		},
 		substitutions = {
+			["WIDGET_CLASS"] = function(config)
+				return snip.class_name(vim.fn.fnamemodify(config.filename, ":t:r"))
+			end,
 			["NAMESPACE"] = function(config)
 				local file = config.filename
 				if string.match(file, "/app/.*.php$") then

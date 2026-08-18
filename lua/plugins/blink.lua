@@ -1,5 +1,6 @@
 return {
 	"saghen/blink.cmp",
+	build = "cargo build --release",
 	event = "InsertEnter",
 	-- use a release tag to download pre-built binaries
 	version = "1.*",
@@ -70,6 +71,8 @@ return {
 		{
 			"L3MON4D3/LuaSnip",
 			version = "v2.*",
+			-- also load when editing .snippets files, for its syntax/ftplugin
+			ft = "snippets",
 			build = "make install_jsregexp",
 			config = function()
 				require("luasnip.loaders.from_snipmate").lazy_load()

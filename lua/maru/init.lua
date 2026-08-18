@@ -70,10 +70,18 @@ end
 
 vim.cmd([[autocmd FileType php setlocal commentstring=//\ %s]])
 
+-- Nothing detects snipmate snippet files, so LuaSnip's syntax/ftplugin for them
+-- never kicks in.
+vim.filetype.add({ extension = { snippets = "snippets" } })
+
 -- Blade/Markdown files should not be auto formatted.
 -- The automatic indentation is treated by markdown as a quote, breaking everything
 vim.api.nvim_create_autocmd({ "BufEnter" }, {
-	pattern = { "*/emails/**.blade.php" },
+	pattern = {
+		"*/emails/**.blade.php",
+		"*/mails/**.blade.php",
+		"*/mail/**.blade.php",
+	},
 	callback = function()
 		vim.b.disable_autoformat = true
 	end,

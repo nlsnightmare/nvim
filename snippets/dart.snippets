@@ -1,2 +1,30 @@
 extends dart
 
+snippet stless
+	import 'package:flutter/material.dart';
+
+	class `v:lua.require'maru.snippets'.class_name()` extends StatelessWidget {
+		const `v:lua.require'maru.snippets'.class_name()`({super.key});
+
+		@override
+		Widget build(BuildContext context) {
+			return ${0:const Placeholder()};
+		}
+	}
+
+snippet stful
+	import 'package:flutter/material.dart';
+
+	class `v:lua.require'maru.snippets'.class_name()` extends StatefulWidget {
+		const `v:lua.require'maru.snippets'.class_name()`({super.key});
+
+		@override
+		State<`v:lua.require'maru.snippets'.class_name()`> createState() => _`v:lua.require'maru.snippets'.class_name()`State();
+	}
+
+	class _`v:lua.require'maru.snippets'.class_name()`State extends State<`v:lua.require'maru.snippets'.class_name()`> {
+		@override
+		Widget build(BuildContext context) {
+			return ${0:const Placeholder()};
+		}
+	}
