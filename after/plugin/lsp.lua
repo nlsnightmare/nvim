@@ -9,18 +9,17 @@ vim.lsp.config("angularls", {
 	root_markers = { "angular.json" },
 })
 
--- vim.lsp.set_log_level("debug")
-vim.lsp.config("dartls", {
-	-- root_markers = { "pubspec.yaml" },
-	filetypes = { "dart" },
+vim.lsp.config["dartls"] = {
 	cmd = {
 		"fvm",
 		"dart",
 		"language-server",
 		"--protocol=lsp",
 	},
-})
-vim.lsp.enable("dartls")
+}
+
+vim.lsp.config("biome", {})
+vim.lsp.enable("biome")
 
 vim.lsp.config("emmet_ls", { filetypes = { "htmlangular", "html", "blade", "scss", "css" } })
 
@@ -46,8 +45,6 @@ vim.lsp.enable({
 	"omnisharp",
 	"angularls",
 	"tsgo",
-	-- "ts_ls",
-	"jsonls",
 })
 
 vim.lsp.enable("text", false)
@@ -65,16 +62,16 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		local opts = { buffer = event.buf }
 
 		-- stylua: ignore start
-		vim.keymap.set("n", "gD",          ":vsp<cr><C-]>",              opts)
-		vim.keymap.set("n", "gr",          telescope.lsp_references)
-		vim.keymap.set("n", "gd",          telescope.lsp_definitions)
+		vim.keymap.set("n", "gD", ":vsp<cr><C-]>", opts)
+		vim.keymap.set("n", "gr", telescope.lsp_references)
+		vim.keymap.set("n", "gd", telescope.lsp_definitions)
 		vim.keymap.set("n", "<leader>vws", vim.lsp.buf.workspace_symbol, opts)
-		vim.keymap.set("n", "<leader>vd",  vim.diagnostic.open_float,    opts)
-		vim.keymap.set("n", "<leader>a",   vim.lsp.buf.code_action,      opts)
-		vim.keymap.set("n", "[d",          vim.diagnostic.goto_next,     opts)
-		vim.keymap.set("n", "]d",          vim.diagnostic.goto_prev,     opts)
-		vim.keymap.set("n", "<leader>r",   vim.lsp.buf.rename,           opts)
-		vim.keymap.set("i", "<C-h>",       vim.lsp.buf.signature_help,   opts)
+		vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, opts)
+		vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action, opts)
+		vim.keymap.set("n", "[d", vim.diagnostic.goto_next, opts)
+		vim.keymap.set("n", "]d", vim.diagnostic.goto_prev, opts)
+		vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, opts)
+		vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
 		-- stylua: ignore end
 	end,
 })

@@ -9,4 +9,16 @@ function SetColorScheme(color)
 	vim.cmd("colorscheme " .. color)
 end
 
-SetColorScheme("challenger_deep")
+local isWsl = false
+local io = require("io")
+local file = io.open("/etc/wsl.conf")
+if file ~= nil then
+	io.close(file)
+	isWsl = true
+end
+
+if isWsl then
+	SetColorScheme("challenger_deep")
+else
+	SetColorScheme("catppuccin-frappe")
+end
