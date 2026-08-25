@@ -44,7 +44,7 @@ vim.lsp.enable({
 	"emmet_ls",
 	"omnisharp",
 	"angularls",
-	"tsgo",
+	"tsc",
 })
 
 vim.lsp.enable("text", false)
