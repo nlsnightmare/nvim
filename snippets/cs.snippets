@@ -12,8 +12,16 @@ snippet prop
 	public required ${1:string} $2 {get; set;}
 	$0
 
+snippet class
+	namespace `v:lua.require'maru.snippets'.namespace()`;
+
+	public class `v:lua.require'maru.snippets'.class_name()`
+	{
+		${0}
+	}
+
 snippet cls
-	public class ${1:`vim_snippets#Filename()`}
+	public class `v:lua.require'maru.snippets'.class_name()`
 	{
 		${0}
 	}

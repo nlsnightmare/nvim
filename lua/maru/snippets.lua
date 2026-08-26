@@ -13,4 +13,44 @@ function M.class_name(name)
 	end))
 end
 
+-- MSBuild turns anything that is not a valid identifier character into "_",
+-- and prefixes a leading digit: "day-1" -> "day_1", "2d" -> "_2d". Dots
+-- survive as namespace separators, so each part is sanitized on its own.
+local function identifier(name)
+	local parts = {}
+	for part in name:gmatch("[^.]+") do
+		part = part:gsub("[^%w_]", "_")
+		table.insert(parts, part:match("^%d") and "_" .. part or part)
+	end
+
+	return table.concat(parts, ".")
+end
+
+-- The namespace roslyn would expect for a C# file: <RootNamespace> of the
+-- nearest .csproj (defaulting to the project file's own name) followed by the
+-- folders between that .csproj and the file.
+function M.namespace(file)
+	file = file or vim.fn.expand("%:p")
+	local dir = vim.fs.dirname(file)
+
+	local csproj = vim.fs.find(function(name)
+		return name:match("%.csproj$")
+	end, { path = dir, upward = true, type = "file" })[1]
+
+	if not csproj then
+		return identifier(vim.fn.fnamemodify(dir, ":t"))
+	end
+
+	local root = table.concat(vim.fn.readfile(csproj)):match("<RootNamespace>(.-)</RootNamespace>")
+		or identifier(vim.fn.fnamemodify(csproj, ":t:r"))
+
+	local parts = { root }
+	local relative = dir:sub(#vim.fs.dirname(csproj) + 2)
+	for part in relative:gmatch("[^/]+") do
+		table.insert(parts, identifier(part))
+	end
+
+	return table.concat(parts, ".")
+end
+
 return M

@@ -23,13 +23,37 @@ vim.lsp.enable("biome")
 
 vim.lsp.config("emmet_ls", { filetypes = { "htmlangular", "html", "blade", "scss", "css" } })
 
+-- vim.lsp.config("ts_ls", { filetypes = { "typescript" } })
+vim.lsp.config("angularls", {
+	filetypes = { "html", "htmlangular" },
+	cmd = function(dispatchers, config)
+		local root_dir = (config and config.root_dir) or vim.fn.getcwd()
+		-- Always resolve @angular/language-service from Mason's own bundle, matched
+		-- to the ngserver shell version. Probing the project's local node_modules
+		-- here (the lspconfig default) can pick up an older language-service that
+		-- lacks APIs the shell expects, e.g. `ensureProjectAnalyzed`, which throws
+		-- during project load and silently kills all template completions.
+		local mason_ng = vim.fn.stdpath("data")
+			.. "/mason/packages/angular-language-server/node_modules/@angular/language-server/node_modules"
+		local cmd = {
+			"ngserver",
+			"--stdio",
+			"--tsProbeLocations",
+			root_dir .. "/node_modules",
+			"--ngProbeLocations",
+			mason_ng,
+		}
+		return vim.lsp.rpc.start(cmd, dispatchers)
+	end,
+})
+
 vim.lsp.config("lua_ls", {
 	settings = {
 		Lua = {
+			-- this enables completion, but it's so, so, so slow it's not even worth it in most cases.
+			-- workspace = { library = vim.api.nvim_get_runtime_file("", true), },
 			telemetry = { enable = false },
-			diagnostics = {
-				globals = { "vim" },
-			},
+			diagnostics = { globals = { "vim" } },
 		},
 	},
 })
@@ -44,7 +68,8 @@ vim.lsp.enable({
 	"emmet_ls",
 	"omnisharp",
 	"angularls",
-	"tsc",
+	"tsgo",
+	"jsonls",
 })
 
 vim.lsp.enable("text", false)
