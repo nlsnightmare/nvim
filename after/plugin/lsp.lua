@@ -68,7 +68,7 @@ vim.lsp.enable({
 	"emmet_ls",
 	"omnisharp",
 	"angularls",
-	"tsgo",
+	"tsc",
 	"jsonls",
 })
 
