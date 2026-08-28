@@ -14,10 +14,19 @@ return {
 		{ "<F12>", ":Telescope lsp_implementations<cr>", desc = "LSP Implementations" },
 		{ "<C-p>", ":Telescope commands<cr>", desc = "Commands " },
 		{ "[?", ":Telescope diagnostics<cr>", desc = "Diagnostics" },
-		{ "<C-f>", ':lua require("telescope.builtin").grep_string({ search = vim.fn.input("GREP> ") })<CR>' },
+		{
+			"<C-f>",
+			':lua require("telescope.builtin").grep_string({ search = vim.fn.input("GREP> "), additional_args = { "-i" } })<CR>',
+		},
 	},
 	opts = {
 		pickers = {
+			grep_string = {
+				additional_args = { "-i" },
+			},
+			live_grep = {
+				additional_args = { "-i" },
+			},
 			colorscheme = {
 				enable_preview = true,
 			},

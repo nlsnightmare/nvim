@@ -20,5 +20,5 @@ end
 if isWsl then
 	SetColorScheme("challenger_deep")
 else
-	SetColorScheme("catppuccin-frappe")
+	SetColorScheme("challenger_deep")
 end
