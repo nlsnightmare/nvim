@@ -21,6 +21,10 @@ return {
 	},
 	opts = {
 		pickers = {
+			find_files = {
+				hidden = true,
+				file_ignore_patterns = { "%.git/" },
+			},
 			grep_string = {
 				additional_args = { "-i" },
 			},
