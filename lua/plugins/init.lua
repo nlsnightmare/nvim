@@ -21,6 +21,7 @@ return {
 
 	{ "catppuccin/nvim", name = "catppuccin" },
 	{ "rose-pine/neovim", name = "rose-pine" },
+	{ "sainnhe/everforest", name = "everforest" },
 	{ "Shatur/neovim-ayu", name = "ayu" },
 	{ "folke/tokyonight.nvim", name = "tokyonight" },
 	{ "rebelot/kanagawa.nvim", name = "kanagawa" },

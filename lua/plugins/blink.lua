@@ -66,7 +66,6 @@ return {
 	dependencies = {
 		"ray-x/lsp_signature.nvim",
 		"neovim/nvim-lspconfig",
-		"Hoffs/omnisharp-extended-lsp.nvim",
 		"Issafalcon/lsp-overloads.nvim",
 		{
 			"L3MON4D3/LuaSnip",

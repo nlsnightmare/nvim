@@ -66,10 +66,11 @@ vim.lsp.enable({
 	"lua_ls",
 	"intelephense",
 	"emmet_ls",
-	"omnisharp",
+	"roslyn_ls",
 	"angularls",
 	"tsc",
 	"jsonls",
+	"kotlin_lsp",
 })
 
 vim.lsp.enable("text", false)

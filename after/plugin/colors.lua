@@ -18,7 +18,7 @@ if file ~= nil then
 end
 
 if isWsl then
-	SetColorScheme("challenger_deep")
+SetColorScheme("catppuccin-mocha")
 else
-	SetColorScheme("challenger_deep")
+SetColorScheme("catppuccin-mocha")
 end

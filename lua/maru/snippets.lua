@@ -41,10 +41,13 @@ function M.namespace(file)
 		return identifier(vim.fn.fnamemodify(dir, ":t"))
 	end
 
-	local root = table.concat(vim.fn.readfile(csproj)):match("<RootNamespace>(.-)</RootNamespace>")
-		or identifier(vim.fn.fnamemodify(csproj, ":t:r"))
+	local msbuild = vim.system({ "dotnet", "msbuild", csproj, "-getProperty:RootNamespace" }):wait(10000)
+	local root = vim.trim(msbuild.stdout)
+	if msbuild.code ~= 0 or root == "" then
+		root = vim.fn.fnamemodify(csproj, ":t:r")
+	end
 
-	local parts = { root }
+	local parts = { identifier(root) }
 	local relative = dir:sub(#vim.fs.dirname(csproj) + 2)
 	for part in relative:gmatch("[^/]+") do
 		table.insert(parts, identifier(part))
